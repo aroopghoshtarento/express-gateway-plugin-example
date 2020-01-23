@@ -25,6 +25,8 @@ module.exports = {
                 var code = res._header ? String(res.statusCode) : String(-1);
                 var message = res._header ? String(res.statusMessage) : String(-1);
                 span.setTag("http.status_code", code);
+                if(req.headers && req.headers['ad-userid'])
+                    span.setTag("http.user-id", req.headers['ad-userid']);
                 span.setTag("http.status_message", message);
                 span.log({ 'event': 'request_end' });
                 span.finish();
