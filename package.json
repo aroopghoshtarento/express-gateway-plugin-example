@@ -8,7 +8,9 @@
   },
   "author": "",
   "license": "Apache-2.0",
-  "dependencies": {},
+  "dependencies": {
+    "jaeger-client": "^3.17.1"
+  },
   "devDependencies": {
     "eslint": "^4.9.0",
     "eslint-plugin-standard": "^3.0.1",
