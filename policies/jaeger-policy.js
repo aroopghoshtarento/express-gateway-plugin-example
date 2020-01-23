@@ -1,5 +1,5 @@
 var jaeger = require('./jaeger')
-const tracer = jaeger("anuvaad-gateway");
+const tracer = jaeger("anuvaad");
 
 module.exports = {
     name: 'jaeger-policy',
