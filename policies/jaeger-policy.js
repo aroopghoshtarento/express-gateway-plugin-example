@@ -15,7 +15,7 @@ module.exports = {
             span.setTag("http.referer", referer);
             span.setTag("http.user-agent", ua);
             span.setTag("http.ip", ip);
-            req.rootSpan = span
+            req.headers.rootSpan = span
 
 
             res.on('finish', () => {
