@@ -1,5 +1,6 @@
 var jaeger = require('./jaeger')
 const tracer = jaeger("anuvaad");
+const { PassThrough } = require('stream');
 
 module.exports = {
     name: 'jaeger-policy',
@@ -15,8 +16,10 @@ module.exports = {
             span.setTag("http.referer", referer);
             span.setTag("http.user-agent", ua);
             span.setTag("http.ip", ip);
-            req.headers.rootSpan = span
-            req.rootSpan = span
+            req.body['rootSpan'] = req.egContext.run(span)
+            let bodyData = JSON.stringify(req.body)
+            req.egContext.requestStream = new PassThrough();
+            req.egContext.requestStream.write(bodyData);
 
             res.on('finish', () => {
                 var code = res._header ? String(res.statusCode) : String(-1);
