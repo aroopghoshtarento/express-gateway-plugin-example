@@ -16,10 +16,10 @@ module.exports = {
             span.setTag("http.referer", referer);
             span.setTag("http.user-agent", ua);
             span.setTag("http.ip", ip);
-            req.body['rootSpan'] = req.egContext.run(span)
-            let bodyData = JSON.stringify(req.body)
-            req.egContext.requestStream = new PassThrough();
-            req.egContext.requestStream.write(bodyData);
+            // req.body['rootSpan'] = req.egContext.run(span)
+            // let bodyData = JSON.stringify(req.body)
+            // req.egContext.requestStream = new PassThrough();
+            // req.egContext.requestStream.write(bodyData);
 
             res.on('finish', () => {
                 var code = res._header ? String(res.statusCode) : String(-1);
