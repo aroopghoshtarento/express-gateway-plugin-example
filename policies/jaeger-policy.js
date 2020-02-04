@@ -25,10 +25,11 @@ module.exports = {
                     span.setTag("http.ip", ip);
                     req.body['rootSpan'] = req.egContext.run(span.context());
                     var bodyData = req.body;
-                    req.egContext.requestStream = new PassThrough();
-                    req.egContext.requestStream.write(bodyData);
-                    req.headers['content-length'] = Buffer.byteLength(bodyData);
-                    req.headers['content-type'] = contentType;
+                    console.log(bodyData)
+                    // req.egContext.requestStream = new PassThrough();
+                    // req.egContext.requestStream.write(bodyData);
+                    // req.headers['content-length'] = Buffer.byteLength(bodyData);
+                    // req.headers['content-type'] = contentType;
 
                     res.on('finish', () => {
                         var code = res._header ? String(res.statusCode) : String(-1);
