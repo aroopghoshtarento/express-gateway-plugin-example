@@ -24,7 +24,7 @@ module.exports = {
                     span.setTag("http.user-agent", ua);
                     span.setTag("http.ip", ip);
                     req.body['rootSpan'] = req.egContext.run(span.context());
-                    let bodyData = JSON.stringify(req.body);
+                    var bodyData = req.body;
                     req.egContext.requestStream = new PassThrough();
                     req.egContext.requestStream.write(bodyData);
                     req.headers['content-length'] = Buffer.byteLength(bodyData);
