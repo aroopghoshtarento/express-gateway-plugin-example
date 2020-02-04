@@ -25,6 +25,7 @@ module.exports = {
                     span.setTag("http.ip", ip);
                     // req.body['rootSpan'] = req.egContext.run(span.context());
                     var bodyData = req.body;
+                    bodyData['rootSpan'] = req.egContext.run(span.context());
                     console.log(bodyData)
                     // req.egContext.requestStream = new PassThrough();
                     // req.egContext.requestStream.write(bodyData);
