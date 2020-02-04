@@ -1,5 +1,6 @@
 var jaeger = require('./jaeger')
 const jsonParser = require('express').json();
+const { FORMAT_HTTP_HEADERS } = require('opentracing')
 const urlEncoded = require('express').urlencoded({ extended: true });
 const tracer = jaeger("anuvaad");
 const { PassThrough } = require('stream');
@@ -23,8 +24,9 @@ module.exports = {
                     span.setTag("http.referer", referer);
                     span.setTag("http.user-agent", ua);
                     span.setTag("http.ip", ip);
+                    tracer.inject(span, FORMAT_HTTP_HEADERS, req.headers)
                     // req.body['rootSpan'] = req.egContext.run(span.context());
-                    var bodyData = req.body;
+                    // var bodyData = req.body;
                     // bodyData['rootSpan'] = req.egContext.run(span.context());
                     console.log(bodyData)
                     // req.egContext.requestStream = new PassThrough();

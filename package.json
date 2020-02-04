@@ -9,7 +9,8 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "jaeger-client": "^3.17.1"
+    "jaeger-client": "^3.17.1",
+    "opentracing": "^0.14.4"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
