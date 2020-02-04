@@ -28,7 +28,7 @@ module.exports = {
                     // req.body['rootSpan'] = req.egContext.run(span.context());
                     // var bodyData = req.body;
                     // bodyData['rootSpan'] = req.egContext.run(span.context());
-                    console.log(bodyData)
+                    // console.log(bodyData)
                     // req.egContext.requestStream = new PassThrough();
                     // req.egContext.requestStream.write(bodyData);
                     // req.headers['content-length'] = Buffer.byteLength(bodyData);
