@@ -18,12 +18,12 @@ module.exports = {
                     var url = req.url;
                     var referer = req.headers.referer || "";
                     var ua = req.headers['user-agent'];
-                    let span = tracer.startSpan(url)
+                    const span = tracer.startSpan(url)
                     span.setTag("http.method", method);
                     span.setTag("http.referer", referer);
                     span.setTag("http.user-agent", ua);
                     span.setTag("http.ip", ip);
-                    req.body['rootSpan'] = req.egContext.run(span);
+                    req.body['rootSpan'] = req.egContext.run(span.context());
                     let bodyData = JSON.stringify(req.body);
                     req.egContext.requestStream = new PassThrough();
                     req.egContext.requestStream.write(bodyData);
