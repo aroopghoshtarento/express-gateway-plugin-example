@@ -16,6 +16,7 @@ module.exports = {
             span.setTag("http.referer", referer);
             span.setTag("http.user-agent", ua);
             span.setTag("http.ip", ip);
+            console.log(req.body)
             // req.body['rootSpan'] = req.egContext.run(span)
             // let bodyData = JSON.stringify(req.body)
             // req.egContext.requestStream = new PassThrough();
